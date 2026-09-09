@@ -1,15 +1,39 @@
 const express = require("express")
-
-//create the express application
-const app = express();
-
+const path = require("path")
 const {add, substract} = require("./math")
+//create the instance express application
+const app = express();
+app.set("view engine", "ejs")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const name = "emmanuel"
+const role = "admin"
+const isAdmin = true
+const studentsList = ["Adekoya", "emmanuel", "adegbite"]
+
+
+
+app.get('/', (req, res)=>{
+    res.render("home", {name, role, isAdmin, studentsList})
+})
 
 
 //define the PORT that your application listens on
 const PORT = 3001;
 
-console.log(add(5-8));
+// console.log(add(5-8));
 
 
 app.get("/", (req,res)=>{
@@ -27,17 +51,20 @@ app.get("/users/:id",(req, res) => {
 
 //Query strings
 app.get("/search", (req, res)=>{
-    res.send(`You searched for: ${req.query}.terms`)
+    res.send(`You searched for: ${req.query.terms}`)
 })
 
-app.get("index", (req, res)=> {
+app.get("/index", (req, res)=> {
     res.sendFile(path.join(__dirname, "public", "index.html"))
 })
 
-// app.get("/user", (req, res) =>{
+// app.get("/userss", (req, res) =>{
 //     res.send(name: "ade", user: "two")
 // }) 
 
+// app.get("/search", (req, res)=>{
+//     res.send(`Results for: ${req.query.q}`)
+// })
 
 
 //START your server

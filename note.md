@@ -22,3 +22,8 @@ A GET request is used whenever a client wants to retrieve data from the server,
 
 
 res.semd()
+res.sendFile()
+
+Templating Enginees
+
+EJS---> Embedded javascript
