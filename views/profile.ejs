@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Welcome, <%= userName %></h1>
+    
+
+    <% if (userName && isOnline) { %>
+     <p style="color: green;"><%= isOnline %> </p>
+    <% } else {%>
+        <p style="color: red;">Username not correct/ not online</p>
+        <%  } %>
+
+</body>
+</html>
