@@ -22,6 +22,8 @@ const name = "emmanuel"
 const role = "admin"
 const isAdmin = true
 const studentsList = ["Adekoya", "emmanuel", "adegbite"]
+const userName = "Haywhynism"
+const isOnline = "isOnline"
 
 
 
@@ -33,15 +35,23 @@ app.get('/', (req, res)=>{
 //define the PORT that your application listens on
 const PORT = 3001;
 
-// console.log(add(5-8));
+
 
 
 app.get("/", (req,res)=>{
     res.send("Homepage")
+    
+    
 })
+
+app.get("/profile", (req, res)=>{
+    res.render("profile", {userName, isOnline})
+} )
 
 app.get("/web", (req,res) =>{
     res.send("This is my page")
+    console.log(add(5,8));
+
 })
 
 //route parameters

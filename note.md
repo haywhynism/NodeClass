@@ -27,3 +27,6 @@ res.sendFile()
 Templating Enginees
 
 EJS---> Embedded javascript
+
+
+<!-- create a new node application, with ejs, array of shooping items, display status. If the array is empty, show no items -->
