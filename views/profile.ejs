@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
-    <h1>Welcome, <%= userName %></h1>
-    
+    <h1>Welcome, <%= userName %>
+    </h1>
+
 
     <% if (userName && isOnline) { %>
-     <p style="color: green;"><%= isOnline %> </p>
-    <% } else {%>
-        <p style="color: red;">Username not correct/ not online</p>
-        <%  } %>
+        <p style="color: green;">
+            <%= isOnline %>
+        </p>
+        <% } else {%>
+            <p style="color: red;">Username not correct/ not online</p>
+            <% } %>
+
+                <form action="/submit" method="POST">
+                    <input name="username" type="text" placeholder="Enter your username">
+                    <input name="password" type="text" placeholder="E">
+                    <button type="submit">send</button>
+                </form>
 
 </body>
+
 </html>

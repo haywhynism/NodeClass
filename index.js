@@ -4,6 +4,7 @@ const {add, substract} = require("./math")
 //create the instance express application
 const app = express();
 app.set("view engine", "ejs")
+app.use(express.urlencoded({extended:true}))//middleware
 
 
 
@@ -66,6 +67,11 @@ app.get("/search", (req, res)=>{
 
 app.get("/index", (req, res)=> {
     res.sendFile(path.join(__dirname, "public", "index.html"))
+})
+
+app.post("/submit", (req, res)=>{
+    console.log(req.body);
+    
 })
 
 // app.get("/userss", (req, res) =>{
