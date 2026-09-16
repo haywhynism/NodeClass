@@ -33,6 +33,58 @@ app.get('/', (req, res)=>{
 })
 
 
+let todos =[]
+
+app.get('/todo', (req, res)=>{
+    res.render("todo", {todos})
+})
+
+app.post("/addTodo", (req, res)=>{
+    console.log(req.body);
+    const {todo} = req.body;
+    todos.push(todo)
+    console.log(todos);
+    res.redirect("/todo")
+    
+})
+
+app.post('/deleteTod', (req, res)=>{
+    console.log("attempting to delete");
+    console.log(req.body);
+    const {index} = req.body;
+    console.log(index);
+    todos.splice(index, 1);
+    res.redirect("/todo")  
+    
+    
+})
+
+app.get("/editTodo/:id", (req, res)=>{
+    const editIndex = req.params.id
+    const theTodo = todos[editIndex];
+    res.render("edit", {editIndex, theTodo})
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //define the PORT that your application listens on
 const PORT = 3001;
 
@@ -71,6 +123,7 @@ app.get("/index", (req, res)=> {
 
 app.post("/submit", (req, res)=>{
     console.log(req.body);
+    res.redirect('/thank-you')
     
 })
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+
+    <form action="/addTodo" method="POST">
+        <input name="todo" type="text" placeholder="Enter your task">
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ol>
+        <% todos.forEach((todo, i)=> { %>
+            <li>
+                <%= todo %>
+            </li>
+
+            <form action="/deleteTod" method="post">
+                <input type="hidden" name="index" id="" value="<%= i %>">
+                <button>Delete</button>
+            </form>
+
+            <form action="/editTodo/<%= i %>" method="get">
+               
+                <button>Edit</button>
+            </form>
+            <% }) %>
+
+
+
+    </ol>
+</body>
+
+</html>
