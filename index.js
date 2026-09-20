@@ -66,6 +66,39 @@ app.get("/editTodo/:id", (req, res)=>{
 })
 
 
+let blogs = []
+
+app.get("/blogs", (req, res)=>{
+    res.render("blog", {blogs})
+})
+
+
+app.post("/blogs", (req, res)=>{
+    console.log(req.body);
+    blogs.push(req.body);
+    res.redirect("/blogs")
+})
+
+app.post("/editBlogs/:id", (req, res)=>{
+    const editIndex = req.params.id;
+    blogs[editIndex] = req.body;
+    res.redirect("/blogs")
+})
+
+app.post("/deleteBlog", (req, res)=>{
+    console.log(req.body);
+    const {index} = req.body;
+    blogs.splice(index, 1);
+    res.redirect("/blogs")
+})
+
+app.get("/editBlogs/:id", (req, res)=>{
+    const editIndex = req.params.id;
+    const theBlog = blogs[editIndex];
+    res.render("editBlogs", {editIndex, theBlog})
+})
+
+
 
 
 

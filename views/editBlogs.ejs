@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Blog</title>
+</head>
+<body>
+    <h1>Edit Blog</h1>
+
+    <form action="/editBlogs/<%= editIndex %>" method="post">
+        <input style="margin-bottom: 20px;" type="text" name="title" value="<%= theBlog.title %>" placeholder="Title"><br>
+        <textarea style="margin-bottom: 20px;" name="content" placeholder="Content"><%= theBlog.content %></textarea> <br>
+        <button type="submit">Update</button>
+    </form>
+    
+</body>
+</html>

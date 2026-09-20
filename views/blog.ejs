@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/blogs" method="POST">
+        <input style="margin-bottom: 20px;" type="text" name="title" placeholder="Title"><br>
+        <textarea style="margin-bottom: 20px;" name="content" placeholder="Content"></textarea> <br>
+        <button type="submit">Submit</button>
+    </form>
+
+        
+        <% blogs.forEach((blog, index) => { %>
+            <h1><%= blog.title %></h1>
+            <p><%= blog.content %></p>
+
+            <form action="/deleteBlog" method="post">
+                <input type="hidden" name="index" value="<%= index %>">
+                <button>Delete</button>
+            </form>
+
+            <form action="/editBlogs/<%= index %>" method="get">
+                <button>Edit</button>
+            </form>
+        <% }) %>
+    
+    
+    
+</body>
+</html>
