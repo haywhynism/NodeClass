@@ -1,5 +1,7 @@
 const express = require("express")
 const path = require("path")
+
+const Connect = require("./dbConfig/Db.connect")
 const {add, substract} = require("./math")
 //create the instance express application
 const app = express();
@@ -7,7 +9,7 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({extended:true}))//middleware
 
 
-
+Connect();
 
 
 
